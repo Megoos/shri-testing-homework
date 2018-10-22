@@ -76,4 +76,11 @@ describe('переходы по страницам', () => {
       .isExisting('.commits-history')
       .then(exists => assert.ok(exists, 'переход по хлебным крошкам не удался'));
   });
+
+  it('отображение "хлебных крошек"', function() {
+    return this.browser
+      .url('/content/90180910fc27a11272a3e5caeeb119a51e5c0545/.gitignore')
+      .getText('.breadcrumbs')
+      .then(text => assert.strictEqual(text, 'HISTORY / ROOT / .gitignore'));
+  });
 });
